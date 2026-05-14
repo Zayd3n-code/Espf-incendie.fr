@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESPF SARL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#070b12;
+color:white;
+overflow-x:hidden;
+}
+
+:root{
+--red:#ff2a2a;
+--yellow:#ffc400;
+--green:#1fd46c;
+--dark:#0d1118;
+--card:#121923;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+height:55px;
+}
+
+.logo h2{
+font-size:28px;
+font-weight:800;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:40px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:var(--red);
+}
+
+.call-btn{
+background:linear-gradient(90deg,var(--red),#ff4a4a);
+padding:14px 28px;
+border-radius:50px;
+font-weight:700;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url('https://images.pexels.com/photos/16894598/pexels-photo-16894598.jpeg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:0 80px;
+position:relative;
+}
+
+.hero-content{
+max-width:850px;
+}
+
+.hero-content h1{
+font-size:95px;
+line-height:0.95;
+font-weight:900;
+margin-bottom:30px;
+}
+
+.hero-content h1 span{
+color:var(--red);
+}
+
+.hero-content p{
+font-size:20px;
+line-height:1.9;
+color:#d0d0d0;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:18px 35px;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn-primary{
+background:var(--red);
+color:white;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px rgba(255,0,0,0.4);
+}
+
+.btn-secondary{
+border:2px solid white;
+color:white;
+}
+
+.btn-secondary:hover{
+background:white;
+color:black;
+}
+
+/* SERVICES */
+.section{
+padding:120px 80px;
+}
+
+.section-title{
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:80px;
+font-weight:900;
+}
+
+.section-title span{
+color:var(--red);
+}
+
+.section-title p{
+margin-top:25px;
+max-width:900px;
+line-height:1.9;
+color:#bdbdbd;
+font-size:18px;
+}
+
+.services-layout{
+display:grid;
+grid-template-columns:320px 1fr;
+gap:40px;
+}
+
+.services-sidebar{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:25px;
+padding:35px;
+height:fit-content;
+}
+
+.services-sidebar h3{
+font-size:30px;
+margin-bottom:30px;
+}
+
+.services-sidebar ul{
+list-style:none;
+}
+
+.services-sidebar li{
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,0.06);
+transition:0.3s;
+cursor:pointer;
+line-height:1.5;
+}
+
+.services-sidebar li:hover{
+color:var(--red);
+padding-left:10px;
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+/* Alignement uniforme des cartes services */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+background:var(--card);
+border-radius:30px;
+overflow:hidden;
+transition:0.4s;
+position:relative;
+min-height:640px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+.service-card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.service-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+padding:35px;
+}
+
+.service-content h3{
+font-size:45px;
+margin-bottom:20px;
+}
+
+.service-content p{
+line-height:1.9;
+color:#d0d0d0;
+margin-bottom:25px;
+}
+
+.service-content ul{
+list-style:none;
+margin-bottom:30px;
+}
+
+.service-content li{
+margin-bottom:15px;
+}
+
+.service-btn {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:18px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.fire{
+border:1px solid rgba(255,0,0,0.3);
+}
+.fire:hover{
+box-shadow:0 0 40px rgba(255,0,0,0.25);
+}
+.fire .service-btn{
+border:2px solid var(--red);
+color:white;
+}
+.fire .service-btn:hover{
+background:var(--red);
+}
+
+.epi{
+border:1px solid rgba(255,196,0,0.3);
+}
+.epi:hover{
+box-shadow:0 0 40px rgba(255,196,0,0.2);
+}
+.epi .service-btn{
+border:2px solid var(--yellow);
+color:white;
+}
+.epi .service-btn:hover{
+background:var(--yellow);
+color:black;
+}
+
+.secours{
+border:1px solid rgba(31,212,108,0.3);
+}
+.secours:hover{
+box-shadow:0 0 40px rgba(31,212,108,0.2);
+}
+.secours .service-btn{
+border:2px solid var(--green);
+color:white;
+}
+.secours .service-btn:hover{
+background:var(--green);
+}
+
+/* INFO */
+.info-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:80px;
+}
+
+.info-box{
+background:rgba(255,255,255,0.03);
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.info-box:hover{
+transform:translateY(-5px);
+border-color:var(--red);
+}
+
+.info-box h4{
+font-size:26px;
+margin:20px 0;
+}
+
+.info-box p{
+line-height:1.8;
+color:#c8c8c8;
+}
+
+/* CONTACT */
+.contact{
+text-align:center;
+background:linear-gradient(135deg,#10151f,#0a0f16);
+}
+
+.contact h2{
+font-size:70px;
+margin-bottom:25px;
+}
+
+.contact p{
+font-size:22px;
+margin-bottom:15px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:black;
+color:#888;
+}
+
+@media(max-width:1200px){
+.services-layout,
+.services-grid,
+.info-grid{
+grid-template-columns:1fr;
+}
+
+.hero-content h1{
+font-size:65px;
+}
+
+.section-title h2{
+font-size:55px;
+}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">
+<img src="logo.png">
+<h2>ESPF</h2>
+</div>
+
+<ul>
+<li><a href="#">Accueil</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<a class="call-btn" href="tel:0771586632">📞 07 71 58 66 32</a>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Protection <span>& Sécurité</span></h1>
+<p>
+ESPF SARL est une entreprise familiale spécialisée en sécurité incendie, fondée en 2009 et structurée en SARL depuis 2018. Basée à Saint-André-sur-Vieux-Jonc, nous accompagnons les professionnels, collectivités et particuliers dans la mise en conformité et la sécurisation de leurs établissements.
+</p>
+
+<div class="hero-buttons">
+<a href="#services" class="btn btn-primary">Découvrir nos services</a>
+<a href="#contact" class="btn btn-secondary">Nous contacter</a>
+</div>
+</div>
+</section>
+
+<section id="services" class="section">
+
+<div class="section-title">
+<h2>Nos <span>Services</span></h2>
+<p>
+Des solutions professionnelles complètes pour la sécurité incendie,
+les équipements de protection et les interventions de secours.
+</p>
+</div>
+
+<div class="services-layout">
+
+<div class="services-sidebar">
+<h3>Services proposés</h3>
+<ul>
+<li>Extincteurs (vente, pose, vérification annuelle)</li>
+<li>SSI - Systèmes de Sécurité Incendie</li>
+<li>BAES - Éclairage de sécurité</li>
+<li>Désenfumage réglementaire</li>
+<li>Signalétique & plans d’évacuation</li>
+<li>Formation manipulation extincteurs</li>
+<li>Exercices d’évacuation</li>
+<li>Matériel de premiers secours</li>
+</ul>
+</div>
+
+<div class="services-grid">
+
+<div class="service-card fire">
+<img src="https://images.pexels.com/photos/16894598/pexels-photo-16894598.jpeg">
+<div class="service-content">
+<h3>Incendie</h3>
+<p>
+Installation, maintenance et vérification réglementaire des équipements de sécurité incendie pour les ERP, sites industriels, syndics et établissements professionnels.
+</p>
+<ul>
+<li>✔ Extincteurs</li>
+<li>✔ Désenfumage</li>
+<li>✔ Alarmes incendie</li>
+<li>✔ Plans d’évacuation</li>
+</ul>
+<a href="#incendie-detail" class="service-btn">En savoir plus</a>
+</div>
+</div>
+
+<div class="service-card epi">
+<img src="https://www.securiteincendie.fr/wp-content/uploads/2022/07/PLAN-D-EVACUATION-1536x1081.png">
+<div class="service-content">
+<h3>Signalétique / Plans d'évacuation</h3>
+<p>
+Création de plans d’évacuation, plans d’intervention et fourniture de signalétique réglementaire conforme aux normes en vigueur.
+</p>
+<ul>
+<li>✔ Plans d’évacuation</li>
+<li>✔ Plans d’intervention</li>
+<li>✔ Consignes de sécurité</li>
+<li>✔ Signalétique réglementaire</li>
+</ul>
+<a href="#signaletique-detail" class="service-btn">En savoir plus</a>
+</div>
+</div>
+
+<div class="service-card secours">
+<img src="https://www.najmaconsultancy.com/wp-content/uploads/2018/02/cpr-class-with-instructors-talking-demonstrating-firt-aid-compressions-ans-reanimation-procedure-cpr-dummy-1000x700.jpg">
+<div class="service-content">
+<h3>Secours & EPI</h3>
+<p>
+Formation du personnel, premiers secours et fourniture d’équipements de protection individuelle adaptés aux besoins des professionnels.
+</p>
+<ul>
+<li>✔ Formation premiers secours (via partenaire agréé)</li>
+<li>✔ Gestes qui sauvent</li>
+<li>✔ Trousse de secours</li>
+<li>✔ Casques, gants et EPI</li>
+</ul>
+<a href="#secours-detail" class="service-btn">En savoir plus</a>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="info-grid">
+<div class="info-box">
+<h4>Entreprise familiale</h4>
+<p>Une société fondée en 2009 avec une approche terrain, humaine et professionnelle.</p>
+</div>
+<div class="info-box">
+<h4>Conformité</h4>
+<p>Respect des normes de sécurité et réglementations professionnelles.</p>
+</div>
+
+<div class="info-box">
+<h4>Intervention rapide</h4>
+<p>Réactivité et efficacité sur tous vos projets et interventions terrain.</p>
+</div>
+
+<div class="info-box">
+<h4>Expertise</h4>
+<p>Une équipe qualifiée et expérimentée dans la sécurité incendie.</p>
+</div>
+
+<div class="info-box">
+<h4>Accompagnement</h4>
+<p>Conseils personnalisés et suivi complet de vos installations.</p>
+</div>
+</div>
+
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Détails <span>des Services</span></h2>
+    <p>Découvrez le déroulement de nos prestations, les contrôles effectués et les obligations réglementaires associées.</p>
+  </div>
+
+  <div class="info-grid">
+    <div id="incendie-detail" class="info-box">
+      <h4>Incendie</h4>
+      <p>Nous réalisons l'installation, la vérification annuelle et la maintenance des extincteurs, BAES, alarmes incendie et dispositifs de désenfumage. Chaque intervention donne lieu à un contrôle complet, à l'apposition d'une étiquette de maintenance et à la remise d'un rapport détaillé.</p>
+    </div>
+
+    <div id="signaletique-detail" class="info-box">
+      <h4>Signalétique / Plans d'évacuation</h4>
+      <p>Nous concevons et installons les plans d'évacuation, plans d'intervention et consignes de sécurité conformément aux normes en vigueur. Les supports sont personnalisés selon votre établissement et vos contraintes réglementaires.</p>
+    </div>
+
+    <div id="secours-detail" class="info-box">
+      <h4>Secours & EPI</h4>
+      <p>Nous fournissons le matériel de premiers secours ainsi que les équipements de protection individuelle. Les formations de premiers secours peuvent être organisées par l'intermédiaire d'un partenaire agréé sélectionné selon vos besoins.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>Déroulement d'une intervention</h4>
+      <p>Après une prise de contact, nous analysons vos besoins, réalisons un diagnostic sur site, proposons un devis détaillé puis assurons l'installation, la vérification ou la mise en conformité de vos équipements.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+<h2>Contact</h2>
+<p><strong>ESPF SARL</strong></p>
+<p>📍 44 Allée des Artisans, 01960 Saint-André-sur-Vieux-Jonc</p>
+<p>📞 07 71 58 66 32</p>
+<p>🕘 Lundi au vendredi : 9h – 18h</p>
+<p>🕘 Samedi : 9h – 12h</p>
+<p>🛡 Assurance RC Pro : Pacifica</p>
+<p>✅ Certification : NF</p>
+<p>🏢 SIRET : 838 112 563 00013</p>
+</section>
+
+<footer>
+© 2026 ESPF SARL - Tous droits réservés
+</footer>
+
+</body>
+</html>
